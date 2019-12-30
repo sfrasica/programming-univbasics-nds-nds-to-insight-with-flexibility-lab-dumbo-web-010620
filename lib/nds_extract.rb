@@ -89,7 +89,18 @@ def gross_per_studio(collection)
 end
 
 def movies_with_directors_set(source)
-  # GOAL: For each director, find their :movies Array and stick it in a new Array
+  i = 0
+ a_o_a_movies_by_dir = []
+
+ while i < source.length do
+   dir_info_hash = source[i]
+   director_name = dir_info_hash[:name]
+   directors_movies = dir_info_hash[:movies]
+   a_o_a_movies_by_dir << movies_with_director_key(director_name, directors_movies)
+   i += 1
+ end
+
+ a_o_a_movies_by_dir# GOAL: For each director, find their :movies Array and stick it in a new Array
   #
   # INPUT:
   # * source: An Array of Hashes containing director information including
